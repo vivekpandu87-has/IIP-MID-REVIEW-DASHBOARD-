@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Financial Governance Dashboard — Family Business Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brandmark">
+      <span class="brandmark-glyph">F·A·M·I·L·Y</span>
+      <span class="brandmark-sub">Financial Governance Dashboard</span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-target="dashboard">Dashboard</button>
+      <button class="tab" data-target="context">Global Context</button>
+      <button class="tab" data-target="overview">Overview</button>
+      <button class="tab" data-target="cases">The Eight Cases</button>
+      <button class="tab" data-target="indicators">Financial Indicators</button>
+      <button class="tab" data-target="benchmarking">Benchmarking</button>
+      <button class="tab" data-target="correlation">Correlation</button>
+      <button class="tab" data-target="heatmap">Conflict Heat Map</button>
+      <button class="tab" data-target="maturity">Governance Maturity</button>
+      <button class="tab" data-target="recommendations">Recommendations</button>
+      <button class="tab" data-target="roadmap">Roadmap</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ DASHBOARD (chart-driven landing view) ============ -->
+  <section id="dashboard" class="section dashboard-section">
+    <div class="section-head">
+      <p class="eyebrow">Live Governance Dashboard</p>
+      <h2>Financial-governance analytics — 8 cases, 2 regions</h2>
+      <p class="section-lede">Every chart below is built directly from the report's Tables 4.2, 4.3, and 4.4 — no simulated data. Hover any chart for exact figures.</p>
+    </div>
+
+    <div class="kpi-row" id="kpi-row" data-section="kpi-row"></div>
+
+    <div class="chart-grid">
+      <div class="chart-panel span-2">
+        <p class="panel-title">Governance maturity by country <span class="panel-sub">avg. F.A.M.I.L.Y. score, 0–30</span></p>
+        <div id="chart-map" data-section="chart-map" class="plotly-chart chart-tall"></div>
+      </div>
+
+      <div class="chart-panel">
+        <p class="panel-title">Case distribution by region</p>
+        <div id="chart-region" data-section="chart-region" class="plotly-chart"></div>
+      </div>
+
+      <div class="chart-panel">
+        <p class="panel-title">Governance maturity levels <span class="panel-sub">of 8 cases</span></p>
+        <div id="chart-maturity-pie" data-section="chart-maturity-pie" class="plotly-chart"></div>
+      </div>
+
+      <div class="chart-panel">
+        <p class="panel-title">Conflict-rating distribution <span class="panel-sub">48 ratings across 6 areas</span></p>
+        <div id="chart-severity-pie" data-section="chart-severity-pie" class="plotly-chart"></div>
+      </div>
+
+      <div class="chart-panel">
+        <p class="panel-title">FY2024 revenue <span class="panel-sub">€bn, disclosed cases</span></p>
+        <div id="chart-revenue" data-section="chart-revenue" class="plotly-chart"></div>
+      </div>
+
+      <div class="chart-panel">
+        <p class="panel-title">Operating / EBITDA margin <span class="panel-sub">%, disclosed cases</span></p>
+        <div id="chart-margin" data-section="chart-margin" class="plotly-chart"></div>
+      </div>
+
+      <div class="chart-panel">
+        <p class="panel-title">Family ownership concentration <span class="panel-sub">% of capital vs. voting rights</span></p>
+        <div id="chart-ownership" data-section="chart-ownership" class="plotly-chart"></div>
+      </div>
+
+      <div class="chart-panel span-2">
+        <p class="panel-title">Governance maturity score, all 8 cases <span class="panel-sub">/30</span></p>
+        <div id="chart-maturity-bar" data-section="chart-maturity-bar" class="plotly-chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GLOBAL & REGIONAL CONTEXT ============ -->
+  <section id="context" class="section context-section">
+    <div class="section-head">
+      <p class="eyebrow context-eyebrow">External, Web-Sourced Data · Aug 2026</p>
+      <h2>Family business in the global economy</h2>
+      <p class="section-lede">This study's 8 cases sit inside a much larger picture. The figures below are pulled from outside the report — McKinsey, EY & University of St. Gallen, and the UAE Ministry of Economy — to show how family businesses in these regions compare globally.</p>
+    </div>
+    <div class="context-cards" id="global-context-cards" data-section="global-context-cards"></div>
+    <div class="chart-panel" style="margin-top:24px;">
+      <p class="panel-title">Country GDP, 2026 <span class="panel-sub">nominal, log scale — where each case is headquartered</span></p>
+      <div id="chart-gdp" class="plotly-chart chart-tall" data-section="chart-gdp"></div>
+      <p class="footnote">Source: IMF World Economic Outlook, April 2026 vintage (via national economy pages).</p>
+    </div>
+  </section>
+
+  <!-- ============ HERO / OVERVIEW ============ -->
+  <section id="overview" class="section hero-section">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">A Study of Financial Conflict in Family Businesses</p>
+        <h1>Governance is the mechanism<br> standing between family ownership<br> and financial outcomes.</h1>
+        <p class="hero-lede">
+          Eight family enterprises, two regions, one recurring pattern: financial conflict
+          is not an accident of personality — it concentrates in succession and capital
+          allocation, and it is contained by the quality of the governance mechanism behind
+          financial decisions, not by ownership form.
+        </p>
+      </div>
+      <div class="hero-panel">
+        <div class="ledger-card">
+          <p class="ledger-card-label">Instruments applied to every case</p>
+          <ol class="instrument-list">
+            <li><span>01</span>F.A.M.I.L.Y. Governance Framework <em>— six dimensions, scored 1–5</em></li>
+            <li><span>02</span>Financial Conflict Heat Map <em>— six areas, Low → Critical</em></li>
+            <li><span>03</span>Governance Maturity Assessment <em>— Emerging → Best Practice</em></li>
+            <li><span>04</span>Governance Dashboard <em>— this page</em></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="dimensions-strip">
+      <p class="strip-label">The six F.A.M.I.L.Y. dimensions (1–5 each, max 30)</p>
+      <div class="dimensions-grid" id="dimensions-grid" data-section="dimensions-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ CASES ============ -->
+  <section id="cases" class="section">
+    <div class="section-head">
+      <p class="eyebrow">Section 4.2</p>
+      <h2>The eight cases</h2>
+      <p class="section-lede">Four listed or externally-rated European groups; four privately-held UAE conglomerates. Click a case to open its full financial-governance story.</p>
+    </div>
+    <div class="region-legend">
+      <span><i style="background:#2f5d4f"></i>Europe</span>
+      <span><i style="background:#a9642c"></i>UAE</span>
+    </div>
+    <div class="case-grid" id="case-grid" data-section="case-grid"></div>
+  </section>
+
+  <!-- ============ FINANCIAL INDICATORS ============ -->
+  <section id="indicators" class="section">
+    <div class="section-head">
+      <p class="eyebrow">Table 4.2 · FY2024</p>
+      <h2>Comparative financial indicators</h2>
+      <p class="section-lede">Reliable ratio-level data exists only for the three listed companies and the externally-rated Haniel. The four UAE groups are privately held — no unverifiable figures are shown for them.</p>
+    </div>
+    <div class="indicator-table-wrap">
+      <table class="indicator-table" id="indicator-table" data-section="indicator-table"></table>
+    </div>
+    <p class="footnote">Sources: Hermès International (2025); Puig Brands (2025); "Puig IPO Becomes" (2024); Jerónimo Martins (2025); Franz Haniel & Cie. (2025); Scope Ratings (2024).</p>
+  </section>
+
+  <!-- ============ INDUSTRY BENCHMARKING ============ -->
+  <section id="benchmarking" class="section">
+    <div class="section-head">
+      <p class="eyebrow">External Benchmark · Web-Sourced</p>
+      <h2>How do these margins compare to their industries?</h2>
+      <p class="section-lede">Each disclosed company's margin checked against a real, currently-reported figure for its own sector — not a generic average.</p>
+    </div>
+    <div class="chart-panel">
+      <div id="chart-benchmark" class="plotly-chart chart-tall" data-section="chart-benchmark"></div>
+    </div>
+    <div id="benchmark-detail" class="benchmark-detail" data-section="benchmark-detail"></div>
+  </section>
+
+  <!-- ============ CORRELATION ============ -->
+  <section id="correlation" class="section">
+    <div class="section-head">
+      <p class="eyebrow">Original Analysis · Derived From Table 4.3 & 4.4</p>
+      <h2>Does governance maturity actually reduce conflict?</h2>
+      <p class="section-lede">Each case's F.A.M.I.L.Y. score plotted against a Conflict Exposure Index — the sum of severity weights (Low=0 … Critical=3) across all 6 conflict areas from the heat map. Click a point for the full case.</p>
+    </div>
+    <div class="chart-panel">
+      <div id="chart-correlation" class="plotly-chart chart-tall" data-section="chart-correlation"></div>
+    </div>
+    <div class="callout">
+      <p><strong>Reading this:</strong> across all 8 cases, governance maturity and conflict exposure move in opposite directions — a moderate-to-strong negative correlation. This is a direct, computed cross-check of the report's Finding F4 ("professionalisation, not ownership form, drives maturity... lower conflict exposure"), using the study's own heat-map ratings rather than a separate claim.</p>
+    </div>
+  </section>
+
+  <!-- ============ HEAT MAP ============ -->
+  <section id="heatmap" class="section">
+    <div class="section-head">
+      <p class="eyebrow">Table 4.3 · The Registry</p>
+      <h2>Financial conflict heat map</h2>
+      <p class="section-lede">Every case, rated against six conflict areas. Ratings are the researcher's qualitative assessment, anchored in documented evidence; for private companies they reflect structural exposure rather than disclosed events.</p>
+    </div>
+    <div class="heatmap-wrap">
+      <div class="heatmap-grid" id="heatmap-grid" data-section="heatmap-grid"></div>
+    </div>
+    <div class="severity-key" id="severity-key"></div>
+    <div class="callout">
+      <p><strong>Reading the registry.</strong> Succession-related disputes and investment/capital-allocation decisions carry the highest exposure across the portfolio — succession peaks precisely where transitions are undocumented (the private UAE groups), and remains elevated even at Hermès, where the LVMH episode stress-tested ownership architecture. Ownership-alignment risk is highest at Haniel (750+ shareholders); executive-compensation conflict is low everywhere.</p>
+    </div>
+  </section>
+
+  <!-- ============ MATURITY ============ -->
+  <section id="maturity" class="section">
+    <div class="section-head">
+      <p class="eyebrow">Table 4.4</p>
+      <h2>Governance maturity assessment</h2>
+      <p class="section-lede">Aggregate F.A.M.I.L.Y. score classifies each organisation on a 0–30 scale.</p>
+    </div>
+    <div class="maturity-layout">
+      <div class="maturity-chart-wrap">
+        <canvas id="maturity-chart" data-section="maturity-chart" height="340"></canvas>
+      </div>
+      <div class="maturity-scale" id="maturity-scale" data-section="maturity-scale"></div>
+    </div>
+    <div class="maturity-table-wrap">
+      <table class="maturity-table" id="maturity-table" data-section="maturity-table"></table>
+    </div>
+  </section>
+
+  <!-- ============ RECOMMENDATIONS ============ -->
+  <section id="recommendations" class="section">
+    <div class="section-head">
+      <p class="eyebrow">Table 5.1 + Original Cut of Table 4.3</p>
+      <h2>Recommendations, linked to findings</h2>
+      <p class="section-lede">Each recommendation is tied one-to-one to a Chapter 4 finding — not offered as generic advice. The risk register below is a new view of the heat map: which conflict areas hit the most cases, and how severely.</p>
+    </div>
+    <div class="chart-panel" style="margin-bottom:24px;">
+      <p class="panel-title">Risk register <span class="panel-sub">bubble size = average severity</span></p>
+      <div id="chart-risk-register" class="plotly-chart chart-tall" data-section="chart-risk-register"></div>
+    </div>
+    <div class="findings-list" id="findings-list" data-section="findings-list"></div>
+  </section>
+
+  <!-- ============ ROADMAP ============ -->
+  <section id="roadmap" class="section">
+    <div class="section-head">
+      <p class="eyebrow">Table 5.2 · Section 5.4</p>
+      <h2>Five-phase implementation roadmap</h2>
+      <p class="section-lede">The four instruments form a single diagnostic-to-action cycle, ending in a costed action plan.</p>
+    </div>
+    <div class="roadmap-track" id="roadmap-track" data-section="roadmap-track"></div>
+  </section>
+
+  <footer class="page-footer">
+    <p>Financial Governance in Family Businesses — Mid-Review Consulting Dashboard.<br>
+    Built from Chapters 3–5 of the underlying report. Data current as of the report's FY2024 sources.</p>
+  </footer>
+
+</main>
+
+<!-- Case detail modal -->
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
